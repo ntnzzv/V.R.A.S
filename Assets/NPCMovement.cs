@@ -17,14 +17,15 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        npc.SetDestination(player.position);
-        
-        animator.SetTrigger("walk");
-        if (npc.remainingDistance <= npc.stoppingDistance)
+               
+        if (npc.remainingDistance <= npc.stoppingDistance || npc.isStopped)
         {
             animator.ResetTrigger("walk");
             animator.SetTrigger("idle");
         }
-        Debug.Log(npc.remainingDistance);
+        else
+        {
+            animator.SetTrigger("walk");
+        }
     }
 }
