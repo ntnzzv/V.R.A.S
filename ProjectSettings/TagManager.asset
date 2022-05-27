@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CameraSet
+  - RedPlane
+  - OrangePlane
+  - BluePlane
+  - Start
   layers:
   - Default
   - TransparentFX
