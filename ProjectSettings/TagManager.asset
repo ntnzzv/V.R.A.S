@@ -4,6 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - RedPlane
+  - OrangePlane
+  - BluePlane
+  - Start
   - CameraSet
   - AgeField
   layers:
