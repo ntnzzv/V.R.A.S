@@ -9,8 +9,8 @@ public class Controllers : MonoBehaviour
     public Transform player;
     public NavMeshAgent woman;
     public GameObject changingText;
-    public string text1 = "Press A To Move/Stop \n Press B to Start Over";
-    public string text2 = "Press A to start simulation";
+    public string text1;
+    public string text2;
     private Text text;
 
 

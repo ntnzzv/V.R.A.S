@@ -8,6 +8,8 @@ TagManager:
   - OrangePlane
   - BluePlane
   - Start
+  - CameraSet
+  - AgeField
   layers:
   - Default
   - TransparentFX
