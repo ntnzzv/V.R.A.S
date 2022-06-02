@@ -10,10 +10,13 @@ public class HitObjectBlue : MonoBehaviour
     [SerializeField] AudioClip girWrongSound; 
 
     [SerializeField] AudioClip errorWrongSound; 
+    
     private Vector3 _initialScale;
     private Vector3 _initiallPosition;
      AudioSource audioSource;
      [SerializeField] ParticleSystem confettiSystem;
+
+     [SerializeField] Animator animator;
 
     
      void Start() {
@@ -39,7 +42,9 @@ public class HitObjectBlue : MonoBehaviour
                 audioSource.PlayOneShot(confettiSound);
                 confettiSystem.Play();
                 audioSource.PlayOneShot(girSuccessSound);
+                animator.SetTrigger("goodjob");
                 ScoreManager.globalBlueScore++;
+                other.gameObject.active = false;
                 
                 break;
             default: 

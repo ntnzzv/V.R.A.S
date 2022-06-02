@@ -13,6 +13,7 @@ public class HitObjectOrange : MonoBehaviour
      AudioSource audioSource;
      [SerializeField] ParticleSystem confettiSystem;
     
+    [SerializeField] Animator animator;
      void Start() {
          audioSource = GetComponent<AudioSource>();
     }
@@ -31,7 +32,9 @@ public class HitObjectOrange : MonoBehaviour
                 confettiSystem.Play();
                 audioSource.PlayOneShot(confettiSound);
                 audioSource.PlayOneShot(girSuccessSound);
+                animator.SetTrigger("goodjob");
                 ScoreManager.globalOrangeScore++;
+                other.gameObject.SetActive(false);
 
                 break;
             case "BluePlane":
