@@ -12,6 +12,7 @@ TagManager:
   - AgeField
   - FinishCanvas
   - HintCanvas
+  - FadeScreenTag
   layers:
   - Default
   - TransparentFX

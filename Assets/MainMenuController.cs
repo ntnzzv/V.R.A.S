@@ -7,17 +7,27 @@ using TMPro;
 public class MainMenuController : MonoBehaviour
 {
     public TMP_InputField AgeInputField;
-
+    public FadeScreen fadeScreen;
+    public TMP_InputField AQInputField;
+    public Text missingDataText;
     public void StartBtn()
     {
-       
-        Debug.Log("Lets see whats up :" + AgeInputField.text);
-        if (!string.IsNullOrEmpty(AgeInputField.text))
+        if (!string.IsNullOrEmpty(AgeInputField.text) && !string.IsNullOrEmpty(AQInputField.text))
         {
-          
-                 SceneManager.LoadScene("main", LoadSceneMode.Single);
+            MainManager.Instance.AqTest = AQInputField.text;
+            MainManager.Instance.PlayerAge = AgeInputField.text;
+            MainManager.Instance.GoToNextScene(fadeScreen);
         }
-        //SceneManager.LoadScene("main", LoadSceneMode.Single);
+        else
+        {
+            Color missingData = missingDataText.color;
+            missingData.a = 255;
+            missingDataText.color = missingData;
+        }
+    }
+    public void LoadMainMenu()
+    {
+        MainManager.Instance.GoToScene(fadeScreen, 0);
     }
     public void ExitApplication()
     {

@@ -17,12 +17,14 @@ public class NPCMovement2 : MonoBehaviour
         transform.Translate( 0 ,0 ,-1.1f);
         npc = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        npc.updateRotation = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate( 0 , 0 , 0 );       
+        npc.updateRotation = false;
+
         if (npc.remainingDistance <= npc.stoppingDistance || npc.isStopped)
         {
             animator.ResetTrigger("walk");

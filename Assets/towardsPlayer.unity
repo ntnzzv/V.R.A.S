@@ -3114,7 +3114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398922373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.491, y: 2.631, z: 6.029}
+  m_LocalPosition: {x: 5.491, y: 2.499, z: 6.029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 951174664}
@@ -3133,7 +3133,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.87590533, b: 0.5424528, a: 1}
   m_Intensity: 1
-  m_Range: 26.47
+  m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3352,6 +3352,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+--- !u!1 &1448886385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8262079901615970371, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
+  m_PrefabInstance: {fileID: 1448886384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1448886386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448886385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d65355f7813ae449d0915084a6b5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOnStart: 1
+  fadeDuration: 2
+  fadeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &1474224750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3642,7 +3662,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.87590533, b: 0.5424528, a: 1}
   m_Intensity: 1.5
-  m_Range: 26.47
+  m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -3699,7 +3719,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550310870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.368, y: 2.475, z: -0.052}
+  m_LocalPosition: {x: 5.368, y: 2.57, z: -0.052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 951174664}
@@ -4647,6 +4667,7 @@ MonoBehaviour:
   text1: Press <color=green>A</color> to stop or release Lisa, Press <color=green>B</color>
     restart
   text2: Press <color=green>A</color> when ready
+  fadeScreen: {fileID: 1448886386}
 --- !u!1001 &2007817959
 PrefabInstance:
   m_ObjectHideFlags: 0
