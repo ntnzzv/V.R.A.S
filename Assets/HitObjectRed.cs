@@ -13,6 +13,8 @@ public class HitObjectRed : MonoBehaviour
     [SerializeField] AudioClip errorWrongSound; 
      AudioSource audioSource;
      [SerializeField] ParticleSystem confettiSystem;
+
+     [SerializeField] Animator animator;
     
      void Start() {
          audioSource = GetComponent<AudioSource>();
@@ -27,8 +29,10 @@ public class HitObjectRed : MonoBehaviour
                 confettiSystem.Play();
                 audioSource.PlayOneShot(confettiSound);
                 audioSource.PlayOneShot(girSuccessSound);
+                animator.SetTrigger("goodjob");
                 ScoreManager.globalRedScore++;
                 Debug.Log("LETS SEE IF NOT ZEROO : " + ScoreManager.globalRedScore);
+                other.gameObject.active = false;
 
                 break;
             case "OrangePlane":

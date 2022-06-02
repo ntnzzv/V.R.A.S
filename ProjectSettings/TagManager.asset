@@ -10,6 +10,8 @@ TagManager:
   - Start
   - CameraSet
   - AgeField
+  - FinishCanvas
+  - HintCanvas
   - FadeScreenTag
   layers:
   - Default
