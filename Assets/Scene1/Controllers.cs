@@ -12,6 +12,7 @@ public class Controllers : MonoBehaviour
     public string text1;
     public string text2;
     private Text text;
+    public FadeScreen fadeScreen;
 
 
     // Start is called before the first frame update
@@ -41,10 +42,29 @@ public class Controllers : MonoBehaviour
            && (woman.remainingDistance <= woman.stoppingDistance || woman.isStopped))
         {   
             Text text = changingText.GetComponent<Text>();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            MainManager.Instance.GoToScene(fadeScreen ,SceneManager.GetActiveScene().buildIndex);
             text.text = text2;
         }
-
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch) && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch))
+        {
+            if (woman.isStopped)
+            {
+                switch (SceneManager.GetActiveScene().name)
+                {
+                    case "towardsPlayer":
+                        MainManager.Instance.DistanceBefore = woman.remainingDistance;
+                        MainManager.Instance.GoToNextScene(fadeScreen);
+                        break;
+                    case "GrabGame":
+                        MainManager.Instance.GoToNextScene(fadeScreen);
+                        break;
+                    case "fromPlayer":
+                        MainManager.Instance.DistanceAfter = woman.remainingDistance;
+                        MainManager.Instance.GoToNextScene(fadeScreen);
+                        break;
+                }
+            }
+        }
     }
 
     //public void TextChange(Text msg)
