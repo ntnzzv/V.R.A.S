@@ -13,6 +13,8 @@ public class Controllers2 : MonoBehaviour
     public string text2;
     private Text text;
     public FadeScreen fadeScreen;
+    private int nextSceneCounter = 0;
+    public Transform headsetFromStage;
 
 
     // Start is called before the first frame update
@@ -46,30 +48,32 @@ public class Controllers2 : MonoBehaviour
             MainManager.Instance.GoToScene(fadeScreen, 1);
             text.text = text2;
         }
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch) && OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.LTouch))
         {
-            if (woman.isStopped)
+            nextSceneCounter++;
+            if (woman.isStopped && nextSceneCounter == 3)
             {
+                nextSceneCounter = 0;
                 switch (SceneManager.GetActiveScene().name)
                 {
-                    case "towardsPlayer":
-                        MainManager.Instance.DistanceBefore = woman.remainingDistance;
+                    case "towardsPlayerA":
+                        MainManager.Instance.DistanceTowardsA = woman.remainingDistance;
                         MainManager.Instance.GoToNextScene(fadeScreen);
                         break;
-                    case "GrabGame":
+                    case "towardsPlayerB":
+                        MainManager.Instance.DistanceTowardsB = woman.remainingDistance;
                         MainManager.Instance.GoToNextScene(fadeScreen);
                         break;
-                    case "fromPlayer":
-                        MainManager.Instance.DistanceAfter = woman.remainingDistance;
+                    case "fromPlayerA":
+                        MainManager.Instance.DistanceFromA = Vector3.Distance(woman.nextPosition, headsetFromStage.position);
+                        MainManager.Instance.GoToNextScene(fadeScreen);
+                        break;
+                    case "fromPlayerB":
+                        MainManager.Instance.DistanceFromB = Vector3.Distance(woman.nextPosition, headsetFromStage.position);
                         MainManager.Instance.GoToNextScene(fadeScreen);
                         break;
                 }
             }
         }
     }
-
-    //public void TextChange(Text msg)
-    //{
-     //   changingText.GetComponent<Text>().set=msg;
-   // }
 }

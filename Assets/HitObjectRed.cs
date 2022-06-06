@@ -25,13 +25,14 @@ public class HitObjectRed : MonoBehaviour
         switch(other.gameObject.tag)
         {
             case "RedPlane":
-                Debug.Log("Correct hit");
-                confettiSystem.Play();
-                audioSource.PlayOneShot(confettiSound);
-                audioSource.PlayOneShot(girSuccessSound);
-                animator.SetTrigger("goodjob");
+                if (ScoreManager.globalRedScore == 2)
+                {
+                    confettiSystem.Play();
+                    audioSource.PlayOneShot(confettiSound);
+                    audioSource.PlayOneShot(girSuccessSound);
+                    animator.SetTrigger("goodjob");
+                }
                 ScoreManager.globalRedScore++;
-                Debug.Log("LETS SEE IF NOT ZEROO : " + ScoreManager.globalRedScore);
                 other.gameObject.active = false;
 
                 break;

@@ -38,11 +38,13 @@ public class HitObjectBlue : MonoBehaviour
                 audioSource.PlayOneShot(girWrongSound);
                 break;
             case "BluePlane":
-                 Debug.Log("Correct hit");
-                audioSource.PlayOneShot(confettiSound);
-                confettiSystem.Play();
-                audioSource.PlayOneShot(girSuccessSound);
-                animator.SetTrigger("goodjob");
+                if (ScoreManager.globalBlueScore == 2)
+                {
+                    audioSource.PlayOneShot(confettiSound);
+                    confettiSystem.Play();
+                    audioSource.PlayOneShot(girSuccessSound);
+                    animator.SetTrigger("goodjob");
+                }
                 ScoreManager.globalBlueScore++;
                 other.gameObject.active = false;
                 

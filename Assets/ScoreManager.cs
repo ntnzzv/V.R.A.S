@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     public static int globalRedScore = 0;
     public static int globalBlueScore = 0;
     public static int globalOrangeScore = 0;
+    public FadeScreen fadeScreen;
     // Start is called before the first frame update
     [SerializeField] public GameObject c1;
     [SerializeField] public GameObject c2;
@@ -45,9 +46,8 @@ public class ScoreManager : MonoBehaviour
                     audioSource.PlayOneShot(confettiSound);
                     audioSource.PlayOneShot(appluadSound);
 
-                    //Add transition to the next scene here 
-                    //Update scene name in line 68
-                    //Invoke("ChangeTheScene", 13.0f);
+                   
+                    Invoke("ChangeTheScene", 10.0f);
         
                 }
             }
@@ -66,6 +66,6 @@ public class ScoreManager : MonoBehaviour
 
     void ChangeTheScene(){
         //Enter correct scene name 
-        SceneManager.LoadScene("sceneName");
+        MainManager.Instance.GoToNextScene(fadeScreen);
     }
 }

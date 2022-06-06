@@ -28,11 +28,13 @@ public class HitObjectOrange : MonoBehaviour
                 audioSource.PlayOneShot(girWrongSound);
                 break;
             case "OrangePlane":
-                Debug.Log("Correct hit");
-                confettiSystem.Play();
-                audioSource.PlayOneShot(confettiSound);
-                audioSource.PlayOneShot(girSuccessSound);
-                animator.SetTrigger("goodjob");
+                if (ScoreManager.globalOrangeScore == 2)
+                {
+                    confettiSystem.Play();
+                    audioSource.PlayOneShot(confettiSound);
+                    audioSource.PlayOneShot(girSuccessSound);
+                    animator.SetTrigger("goodjob");
+                }
                 ScoreManager.globalOrangeScore++;
                 other.gameObject.SetActive(false);
 

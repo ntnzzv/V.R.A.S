@@ -12,7 +12,9 @@ public class MainMenuController : MonoBehaviour
     public Text missingDataText;
     public void StartBtn()
     {
-        if (!string.IsNullOrEmpty(AgeInputField.text) && !string.IsNullOrEmpty(AQInputField.text))
+        if ((!string.IsNullOrEmpty(AgeInputField.text) && !string.IsNullOrEmpty(AQInputField.text)) && 
+            (int.Parse(AgeInputField.text) < 99 && int.Parse(AgeInputField.text) > 0)
+            && (int.Parse(AQInputField.text) <= 50 && int.Parse(AQInputField.text) > 0))
         {
             MainManager.Instance.AqTest = AQInputField.text;
             MainManager.Instance.PlayerAge = AgeInputField.text;

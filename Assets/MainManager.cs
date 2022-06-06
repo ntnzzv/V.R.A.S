@@ -8,8 +8,11 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
     public string PlayerAge { get; set; }
     public string AqTest { get; set; }
-    public float DistanceBefore { get; set; }
-    public float DistanceAfter { get; set; }
+    public float DistanceTowardsA { get; set; }
+    public float DistanceTowardsB { get; set; }
+    public float DistanceFromA { get; set; }
+    public float DistanceFromB { get; set; }
+
     private void Awake()
     {
 
@@ -29,7 +32,7 @@ public class MainManager : MonoBehaviour
     public void GoToNextScene(FadeScreen fadeScreen)
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        StartCoroutine(GoToSceneRoutine( fadeScreen, nextSceneIndex >= 4 ? 0 : nextSceneIndex));
+        StartCoroutine(GoToSceneRoutine( fadeScreen, nextSceneIndex ));
     }
     IEnumerator GoToSceneRoutine(FadeScreen fadeScreen, int sceneIndex)
     {
